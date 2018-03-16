@@ -9,3 +9,5 @@ In command window, type: 'oneexample;'.
 For extra credit:
 In command window, type: 'X = onedetect(1, 1, 'dog'); oneshow(1, X);'.
 
+Note: Except for harris.m, hog.m, and dog.m, other source files are provided by the instructor as a framework.
+
