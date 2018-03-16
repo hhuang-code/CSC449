@@ -1,0 +1,18 @@
+1. What you see in the matches of your method?
+As shown in 'lastexample.png', there are ten pairs of matches detected by this method. Seven out of ten pairs of matches are located on calculators, and the other three matches different objects with a calculator. If we take a close look at all matches on two calculators, we might notice that not all of these seven matches exactly match the same keypoints. Generally, most of matches have done a good job. 
+
+2. Are they sufficient to play the game?
+Obviously not sufficient. The method "Harris corner detector + HOG descriptor" is not robust enough to find and match all keypoints for two reasons: 
+(1). Harris corner detector is not scale-invariant. In Lowe's original paper, SIFT detector detects keypoints in multiply scales, which is lacked in Harris detector. If we pay more attention to these two calculators, we might notice that they are not exactly the same size. Therefore, a scale-invariant detector is necessary for detecting all keypoints.
+(2). As with the HOG descriptor, even though we have added code to make it rotation adaptive, we skip orientation alignment. Such omission hurts the robustness of HOG description against image rotation.
+
+3. Are they bad?
+Although the result is not as good as we expect, it is also not that bad. 
+As we can see, many corners have been detected by Harris corner detector. In addition, most of matches successfully match keypoints on these two calculators. It means that the same (or similar) points have similar descriptors. 
+
+4. Why might they be missing obvious matches?
+In my view, there are at least three reasons that lead to missing obvious matches:
+(1). The number of matches we want to generate. In this program, we set the parameter (k), the number of matches we want to find, to a fixed value, say 10. If we increase this value, we are able to find more matches.
+(2). The distance measurement we use. In this program, we choose Euclidian distance to measure whether a pair of two keypoints is the same or similar. We only choose the pair whose Euclidian distance is the smallest among all pairs. However, only considering the pair with the smallest distance is not accurate enought. We should also consider pairs with the second, third, or even forth smallest distance to increase error tolerance.
+(3). As mentioned in question 2 above, both Harris corner detector and HOG descriptor are not scale invariant, and they are not as robust against rotation as we expect. In addtion, Gaussian filter is adopted in both detector and descriptor. However, the standard variance parameter (sigma) can be set to different values. Different values yield different results. If we want to find the best result, we have to test as many values as possible through trial and error.
+

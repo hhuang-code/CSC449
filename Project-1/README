@@ -1,0 +1,11 @@
+Please enter the folder "./Project-1" in the first step; and then run "oneload2.m".
+
+For problem 1:
+In command window, type: 'X = onedetect(1); oneshow(1, X);'.
+
+For problem 2 ~ 4:
+In command window, type: 'oneexample;'.
+
+For extra credit:
+In command window, type: 'X = onedetect(1, 1, 'dog'); oneshow(1, X);'.
+
