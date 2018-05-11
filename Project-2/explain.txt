@@ -1,0 +1,29 @@
+1. Original task
+Results:
+twoexample_1.png, twoexample_2.png
+
+2. Change image
+Results:
+image_1.png, image_1_keyindex_69.png
+image_5.png, image_5_keyindex_40.png
+image_10.png, image_10_keyindex_37.png, image_10_keyindex_39.png
+
+3. Change key segment
+Results:
+image_15_keyindex_36.png, image_15_keyindex_41.png, image_15_keyindex_69.png
+
+4. Change tau
+Results:
+image_15_tau_0.1.png, image_15_tau_0.3.png, image_15_tau_0.7.png, image_15_tau_0.9.png
+
+
+As we can see, if we correctly choose key segment index, this algorithm can successfully segment foreground superpixels.
+
+If we pay attention to results of (4), we can realize that the parameter tau is the key to a successful segmentation. If tau is too small, e.g., tau = 0.1, it will lead to oversegmentation. If tau is greater than a threshold, e.g., tau >= 0.3, a complete and compact segmentation will be achieved. However, if tau is continuously increasing, the segmentation will also fall, e.g., tau = 0.9.
+
+That's because when tau is near 1.0, all superpixels will be considered as a whole foreground. (The capacity between each superpixel is large.) 
+
+Although it is useful in playing Spot_It automatically, it is far from complete automatical. That is because:
+first, it is difficult to pick a appropriate parameter tau for each foreground;
+second, this algorithm does not provide us any information about which key segment index is correct for a meaningful foreground object.
+

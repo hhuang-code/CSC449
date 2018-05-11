@@ -1,0 +1,16 @@
+Please enter the folder "./Project-2/two_m" in the first step;
+
+For problem 1:
+In command window, run 'oneload.m', then type: '[S, C] = twosegment(15); twoshow(15, C, S)'.
+
+For problem 2:
+In command window, type: 'C = tworeduce(15, C, S)'.
+
+For problem 3:
+In command window, type: 'B = twocut(S, C, 61, 0.5); twoshow(15, C, S, B)'
+
+For problem 4:
+In command window, run 'twoexample.m'.
+
+All result images are saved in the folder './results' and the explanation is written in the file './explain.txt'.
+
